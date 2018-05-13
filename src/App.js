@@ -1,18 +1,41 @@
 import React, { Component } from 'react'
 import { withCurrency } from './js/CurrencyProvider'
-
-const CurrencyDisplay = ({ rate }) => {
-  return <p>Da rate: {rate}</p>
-}
+import moment from 'moment'
+import DateComponent from './js/components/DateComponent'
+import CurrencyInput from './js/components/CurrencyInput'
+import Hrywna from './js/components/Hrywna'
+import Average from './js/components/Average'
+import Rates from './js/components/Rates'
+import 'react-datepicker/dist/react-datepicker.css'
 
 class App extends Component {
+  state = {
+    date: moment(),
+    focused: null
+  }
   componentDidMount() {
-    this.props.context.getNewValue()
+    this.props.context.getRates()
   }
 
   render() {
-    const { rate } = this.props.context
-    return <CurrencyDisplay rate={rate} />
+    const {
+      rates,
+      average,
+      getRates,
+      date,
+      usd,
+      updateUsd,
+      uah
+    } = this.props.context
+    return (
+      <div>
+        <DateComponent date={date} updateDate={getRates} />
+        <Rates rates={rates} />
+        <Average average={average} />
+        <CurrencyInput usd={usd} updateUsd={updateUsd} />
+        <Hrywna uah={uah} />
+      </div>
+    )
   }
 }
 
