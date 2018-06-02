@@ -6,7 +6,7 @@ const Rates = ({ rates }) => {
     <div>
       {rates.map(val => (
         <p key={val.date}>
-          {val.rate} - {val.date}
+          {Number(val.rate).toFixed(2)} - {val.date}
         </p>
       ))}
     </div>

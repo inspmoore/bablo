@@ -1,21 +1,65 @@
 import React, { Component } from 'react'
 import { withCurrency } from './js/CurrencyProvider'
-import moment from 'moment'
 import DateComponent from './js/components/DateComponent'
-import CurrencyInput from './js/components/CurrencyInput'
-import Hrywna from './js/components/Hrywna'
 import Average from './js/components/Average'
-import Rates from './js/components/Rates'
-import 'react-datepicker/dist/react-datepicker.css'
+import styled, { injectGlobal } from 'styled-components'
+import RatesChart from './js/components/RatesChart'
+import InputRow from './js/components/InputRow'
+import TopBar from './js/components/TopBar'
+import Logo from './js/components/Logo'
+import { localized } from './js/LocaleProvider'
+import LanguageSelector from './js/components/LanguageSelector'
+import { isIphone } from './js/tools/isiPhone'
+import Snackbar from './js/components/Snackbar'
+
+injectGlobal`
+  body, html {
+    margin: 0;
+    padding: 0;
+    background: #2d2d2d;
+  }
+
+  #root {
+    height: 100vh;
+  }
+
+  .recharts-label {
+    fill: white;
+  }
+`
+
+const AppStyled = styled.div`
+  overflow: hidden;
+  padding-top: ${isIphone() ? '91px' : '56px'};
+  padding-bottom: 32px;
+  background: #212427;
+  margin: 0 auto;
+  min-height: calc(100% - 88px);
+  max-width: 500px;
+`
+
+const Header = styled.p`
+  font-size: 18px;
+  font-family: 'Helvetica Neue', 'HelveticaNeue', 'Helvetica', 'Arial',
+    sans-serif;
+  color: #efefef;
+  text-align: center;
+  font-weight: 100;
+`
+
+const Footer = Header.extend`
+  font-weight: 300;
+  font-size: 10px;
+  font-family: 'Helvetica Neue', 'HelveticaNeue', 'Helvetica', 'Arial',
+    sans-serif;
+`
 
 class App extends Component {
-  state = {
-    date: moment(),
-    focused: null
-  }
   componentDidMount() {
     this.props.context.getRates()
   }
+
+  graphHeight = 300
 
   render() {
     const {
@@ -25,18 +69,43 @@ class App extends Component {
       date,
       usd,
       updateUsd,
-      uah
+      updateUah,
+      uah,
+      loading,
+      message
     } = this.props.context
+
+    const { locale } = this.props
+
     return (
-      <div>
-        <DateComponent date={date} updateDate={getRates} />
-        <Rates rates={rates} />
+      <AppStyled>
+        <TopBar
+          left={<Logo color="#fff" />}
+          center={
+            <DateComponent
+              date={date}
+              updateDate={getRates}
+              loading={loading}
+            />
+          }
+          right={<LanguageSelector />}
+          loading={loading}
+        />
         <Average average={average} />
-        <CurrencyInput usd={usd} updateUsd={updateUsd} />
-        <Hrywna uah={uah} />
-      </div>
+        <RatesChart rates={rates} average={average} />
+        <Header>{locale.calculator}</Header>
+        <InputRow value={usd} onChange={updateUsd} label="$" />
+        <InputRow
+          value={uah}
+          onChange={updateUah}
+          label="₴"
+          step={average - average % 5}
+        />
+        <Footer>Bablo - Łukasz Mórawski 2018 A.D.</Footer>
+        <Snackbar message={message} />
+      </AppStyled>
     )
   }
 }
 
-export default withCurrency(App)
+export default localized(withCurrency(App))

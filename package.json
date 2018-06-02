@@ -3,10 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "chart.js": "^2.7.2",
+    "chartjs-plugin-datalabels": "^0.3.0",
     "moment": "^2.22.1",
     "react": "^16.3.2",
+    "react-chartjs-2": "^2.7.2",
     "react-datepicker": "^1.4.1",
-    "react-dom": "^16.3.2"
+    "react-dom": "^16.3.2",
+    "source-map-explorer": "^1.5.0",
+    "styled-components": "^3.2.6"
   },
   "devDependencies": {
     "react-scripts": "1.1.4"
@@ -15,6 +20,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "analyze": "source-map-explorer build/static/js/main.*"
   }
 }
