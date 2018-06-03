@@ -6,7 +6,6 @@ function getRate(date) {
     ).then(
       res => {
         res.json().then(json => {
-          console.log(json)
           resolve({
             rate: json[0].rate,
             date: json[0].exchangedate,

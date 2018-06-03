@@ -6,7 +6,7 @@ import { localized } from '../LocaleProvider'
 const showhide = keyframes`
   0% {
     opacity: 0;
-    transform: scale(0.8);
+    transform: scale(0.85);
   }
   
   7% {
@@ -21,14 +21,14 @@ const showhide = keyframes`
   
   100% {
     opacity: 0;
-    transform: scale(0.8);
+    transform: scale(0.85);
   }
 `
 
 const SnackbarStyled = styled.div`
   color: white;
   max-width: 344px;
-  background: #f51c1c;
+  background-color: #161719;
   border-radius: 8px;
   padding: 16px;
   position: fixed;
@@ -36,9 +36,13 @@ const SnackbarStyled = styled.div`
   margin: 0 16px;
   font-family: 'Helvetica Neue', 'HelveticaNeue', 'Helvetica', 'Arial',
     sans-serif;
-  text-align: center;
+  text-align: left;
   animation: ${showhide} 4.6s linear;
   opacity: 0;
+  @media (max-width: 500px) {
+    right: 0px;
+    left: 0px;
+  }
 `
 
 class Snackbar extends Component {
@@ -77,7 +81,6 @@ class Snackbar extends Component {
   render() {
     const { locale } = this.props
     const { messageStack } = this.state
-    console.log(messageStack)
     if (messageStack[0]) {
       this.setShowToFalse()
       return <SnackbarStyled>{locale[messageStack[0]]}</SnackbarStyled>
