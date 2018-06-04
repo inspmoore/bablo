@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { withCurrency } from './js/CurrencyProvider'
 import DateComponent from './js/components/DateComponent'
 import Average from './js/components/Average'
-import styled, { injectGlobal } from 'styled-components'
+import styled from 'styled-components'
 import RatesChart from './js/components/RatesChart'
 import InputRow from './js/components/InputRow'
 import TopBar from './js/components/TopBar'
@@ -12,21 +12,17 @@ import LanguageSelector from './js/components/LanguageSelector'
 import { isIphone } from './js/tools/isiPhone'
 import Snackbar from './js/components/Snackbar'
 
-injectGlobal`
-  body, html {
-    margin: 0;
-    padding: 0;
-    background: #2d2d2d;
-  }
+// injectGlobal`
+//   body, html {
+//     margin: 0;
+//     padding: 0;
+//     background: #2d2d2d;
+//   }
 
-  #root {
-    height: 100vh;
-  }
-
-  .recharts-label {
-    fill: white;
-  }
-`
+//   #root {
+//     height: 100vh;
+//   }
+// `
 
 const AppStyled = styled.div`
   overflow: hidden;
@@ -49,17 +45,23 @@ const Header = styled.p`
 
 const Footer = Header.extend`
   font-weight: 300;
-  font-size: 10px;
+  font-size: 11px;
   font-family: 'Helvetica Neue', 'HelveticaNeue', 'Helvetica', 'Arial',
     sans-serif;
+  color: #efefef;
+  & a {
+    color: inherit;
+    text-decoration: none;
+  }
+  & a:hover {
+    color: #0079ff;
+  }
 `
 
 class App extends Component {
   componentDidMount() {
     this.props.context.getRates()
   }
-
-  graphHeight = 300
 
   render() {
     const {
@@ -76,7 +78,6 @@ class App extends Component {
     } = this.props.context
 
     const { locale } = this.props
-
     return (
       <AppStyled>
         <TopBar
@@ -101,7 +102,16 @@ class App extends Component {
           label="₴"
           step={average - average % 5}
         />
-        <Footer>Bablo - Łukasz Mórawski 2018 A.D.</Footer>
+        <Footer>
+          <span>Bablo 2018 A.D. - </span>
+          <a
+            href="https://twitter.com/pirx__"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            @pirx__
+          </a>
+        </Footer>
         <Snackbar message={message} />
       </AppStyled>
     )

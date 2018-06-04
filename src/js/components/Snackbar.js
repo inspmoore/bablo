@@ -52,13 +52,13 @@ class Snackbar extends Component {
   timer = null
 
   static getDerivedStateFromProps(props, state) {
-    const newStack = [...state.messageStack]
     if (
       props.message !== state.messageStack[0] &&
       props.message !== null &&
       props.message !== undefined &&
       props.message !== ''
     ) {
+      const newStack = [...state.messageStack]
       newStack.push(props.message)
       return { messageStack: newStack }
     }
@@ -83,11 +83,19 @@ class Snackbar extends Component {
     const { messageStack } = this.state
     if (messageStack[0]) {
       this.setShowToFalse()
-      return <SnackbarStyled>{locale[messageStack[0]]}</SnackbarStyled>
+      return (
+        <SnackbarStyled>
+          {locale[messageStack[0]] || locale.somethingswrong}
+        </SnackbarStyled>
+      )
     } else {
       return null
     }
   }
+}
+
+Snackbar.propTypes = {
+  message: PropTypes.string
 }
 
 export default localized(Snackbar)
