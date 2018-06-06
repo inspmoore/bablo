@@ -1,24 +1,24 @@
 {
   "short_name": "Bablo",
-  "name": "Bablo - bo hajs musi się zgadzać",
+  "name": "Bo hajs musi się zgadzać",
   "icons": [
     {
       "src": "favicon.ico",
-      "sizes": "128x128 64x64 48x48 32x32 24x24 16x16",
+      "sizes": "64x64 32x32 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "big_b_192.png",
+      "src": "android-chrome-192x192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "big_b_512.png",
+      "src": "icon_512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
   ],
-  "theme_color": "#212427",
+  "theme_color": "#161719",
   "background_color": "#2d2d2d",
   "display": "standalone",
   "scope": "/",
