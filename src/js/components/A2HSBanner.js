@@ -121,6 +121,10 @@ class A2HSBanner extends Component {
 
   render() {
     const { bannerHeight, visible, showing } = this.state
+    console.log(
+      `bannerHeight: ${bannerHeight}, visible: ${visible}, showing: ${showing}`
+    )
+
     if (visible && showing) return this.renderBanner({ margin: 0 })
     if (visible && !showing)
       return this.renderBanner({
