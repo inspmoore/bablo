@@ -44,7 +44,6 @@ class A2HSBanner extends Component {
       showing: false
     }
     this.deferredPrompt = null
-    window.ob = this.openBanner
   }
 
   componentDidMount() {
@@ -98,7 +97,7 @@ class A2HSBanner extends Component {
       // a strange workaround. It seems that the browser was not updating the DOM quick enough
       setTimeout(() => {
         this.setState({ showing: true })
-      }, 1000)
+      }, 10)
     })
   }
 
