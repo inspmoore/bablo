@@ -11,22 +11,11 @@ import { localized } from './js/LocaleProvider'
 import LanguageSelector from './js/components/LanguageSelector'
 import { isIphone } from './js/tools/isiPhone'
 import Snackbar from './js/components/Snackbar'
-
-// injectGlobal`
-//   body, html {
-//     margin: 0;
-//     padding: 0;
-//     background: #2d2d2d;
-//   }
-
-//   #root {
-//     height: 100vh;
-//   }
-// `
+import A2HSBanner from './js/components/A2HSBanner'
 
 const AppStyled = styled.div`
   overflow: hidden;
-  padding-top: ${isIphone() ? '91px' : '56px'};
+  padding-top: ${isIphone() ? '91px' : '48px'};
   padding-bottom: 32px;
   background: #212427;
   margin: 0 auto;
@@ -91,6 +80,11 @@ class App extends Component {
           }
           right={<LanguageSelector />}
           loading={loading}
+        />
+        <A2HSBanner
+          message={locale.installpropmt}
+          yes={locale.yesplease}
+          no={locale.nothankyou}
         />
         <Average average={average} />
         <RatesChart rates={rates} average={average} />

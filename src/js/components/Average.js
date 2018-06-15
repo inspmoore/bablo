@@ -25,6 +25,7 @@ const AverageStyled = styled.div`
   font-family: 'Helvetica Neue', 'HelveticaNeue', 'Helvetica', 'Arial',
     sans-serif;
   font-weight: 200;
+  padding-top: 8px;
 `
 const Label = styled.span`
   color: #b1b1b1;
