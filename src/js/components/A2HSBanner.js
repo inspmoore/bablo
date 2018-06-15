@@ -83,6 +83,7 @@ class A2HSBanner extends Component {
 
   handleAppInstalled = e => {
     console.log(e, 'App successfully installed!')
+    this.props.message.sendMessage('appinstalled')
   }
 
   closeBanner = () => {

@@ -53,17 +53,20 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
   <title>Bablo</title>
+
   <style>
+    /* prettier-ignore */
+
     body,
     html {
       margin: 0;
       padding: 0;
       background: #2d2d2d;
-      color: white;
+      color: #fff
     }
 
     #root {
-      height: 100vh;
+      height: 100vh
     }
 
     .app {
@@ -73,7 +76,7 @@
       background: #212427;
       margin: 0 auto;
       min-height: calc(100% - 88px);
-      max-width: 500px;
+      max-width: 500px
     }
 
     .header {
@@ -82,158 +85,100 @@
       left: 0;
       right: 0;
       background-color: #161719;
-      z-index: 1;
+      z-index: 1
     }
 
     .topbar {
       display: -webkit-box;
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: flex;
       height: 48px;
-      -webkit-flex-direction: row;
-      -ms-flex-direction: row;
-      flex-direction: row;
-      -webkit-align-items: center;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
-      align-items: center;
-      -webkit-box-pack: space-around;
-      -webkit-justify-content: space-around;
-      -ms-flex-pack: space-around;
-      justify-content: space-around;
       margin: 0 auto;
       max-width: 500px;
-      padding: 0px 19px;
-      box-sizing: border-box;
+      padding: 0 19px;
+      box-sizing: border-box
     }
 
     .topbar-left {
-      -webkit-flex: 1;
-      -ms-flex: 1;
-      flex: 1;
-      text-align: left;
+      text-align: left
     }
 
     .topbar-center {
-      -webkit-flex: 1;
-      -ms-flex: 1;
-      flex: 1;
-      text-align: center;
+      text-align: center
     }
 
     .topbar-right {
-      -webkit-flex: 1;
-      -ms-flex: 1;
-      flex: 1;
-      text-align: right;
+      text-align: right
     }
 
     .language-button {
       background-color: transparent;
       padding: 8px;
-      margin: 0px;
+      margin: 0;
       border: 1px #8e8f8f solid;
       border-radius: 8px;
-      min-width: 35px;
+      min-width: 35px
     }
 
     .average {
       width: 100%;
-      display: -webkit-box;
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-      flex-direction: column;
-      -webkit-box-pack: center;
-      -webkit-justify-content: center;
-      -ms-flex-pack: center;
-      justify-content: center;
-      -webkit-align-items: center;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
-      align-items: center;
+      display: -webkit-box
     }
 
     .placeholder {
       background: transparent;
       overflow: hidden;
       position: relative;
-      border-radius: 4px;
+      border-radius: 4px
     }
 
     .placeholder::before {
       content: '';
       animation-duration: 1.5s;
-      animation-fill-mode: forwards;
       animation-iteration-count: infinite;
       animation-name: placeHolderShimmer;
       animation-timing-function: linear;
-      background: darkgray;
+      background: #a9a9a9;
       background: linear-gradient(to right, #404040 10%, #575757 18%, #404040 33%);
       background-size: 1000px 100%;
       position: absolute;
-      left: 0px;
-      right: 0px;
-      top: 0px;
-      bottom: 0px;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0
     }
 
     .chart {
       width: 100%;
-      display: flex;
+      display: flex
     }
 
     .input-row {
       display: -webkit-box;
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-flex-direction: row;
-      -ms-flex-direction: row;
-      flex-direction: row;
-      -webkit-box-pack: justify;
-      -webkit-justify-content: space-between;
-      -ms-flex-pack: justify;
-      justify-content: space-between;
-      -webkit-align-items: baseline;
-      -webkit-box-align: baseline;
-      -ms-flex-align: baseline;
-      align-items: baseline;
       background: transparent;
       padding: 16px;
-      border-width: 1px 0px;
+      border-width: 1px 0;
       border-style: solid;
       border-color: #4c4c4c;
-      margin-bottom: -1px;
+      margin-bottom: -1px
     }
 
     .calc {
-      margin: 30px auto;
+      margin: 30px auto
     }
 
     .footer {
-      font-size: 18px;
-      font-family: 'Helvetica Neue', 'HelveticaNeue', 'Helvetica', 'Arial', sans-serif;
       color: #efefef;
       text-align: center;
-      font-weight: 100;
-      font-weight: 300;
-      font-size: 11px;
-      font-family: 'Helvetica Neue', 'HelveticaNeue', 'Helvetica', 'Arial', sans-serif;
-      color: #efefef;
+      font: 100 18px 'Helvetica Neue', 'HelveticaNeue', 'Helvetica', 'Arial', sans-serif
     }
 
     .footer a {
       text-decoration: none;
-      color: inherit;
+      color: inherit
     }
 
     .footer a:hover {
       text-decoration: none;
-      color: inherit;
+      color: inherit
     }
 
     @keyframes placeHolderShimmer {
@@ -264,7 +209,6 @@
     .react-datepicker__month-year-read-view--down-arrow:before,
     .react-datepicker__year-read-view--down-arrow,
     .react-datepicker__year-read-view--down-arrow:before {
-      -webkit-box-sizing: content-box;
       box-sizing: content-box;
       position: absolute;
       border: 8px solid transparent;
@@ -334,13 +278,12 @@
     }
 
     .react-datepicker {
-      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-      font-size: .8rem;
       background-color: #fff;
       color: #000;
       border: 1px solid #aeaeae;
       border-radius: .3rem;
-      position: relative
+      position: relative;
+      font: .8rem "Helvetica Neue", Helvetica, Arial, sans-serif
     }
 
     .react-datepicker--time-only .react-datepicker__triangle {
@@ -426,8 +369,6 @@
     }
 
     .react-datepicker-time__header {
-      -o-text-overflow: ellipsis;
-      text-overflow: ellipsis;
       white-space: nowrap;
       overflow: hidden
     }
@@ -548,7 +489,6 @@
       overflow-y: scroll;
       padding-right: 30px;
       width: 100%;
-      -webkit-box-sizing: content-box;
       box-sizing: content-box
     }
 
@@ -772,10 +712,6 @@
     .react-datepicker__month-option:last-of-type,
     .react-datepicker__month-year-option:last-of-type,
     .react-datepicker__year-option:last-of-type {
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
       border-bottom-left-radius: .3rem;
       border-bottom-right-radius: .3rem
     }
@@ -820,7 +756,6 @@
       background-color: #216ba5;
       border-radius: 50%;
       bottom: 0;
-      -webkit-box-sizing: border-box;
       box-sizing: border-box;
       color: #fff;
       content: "\D7";
@@ -854,12 +789,7 @@
       background-color: rgba(0, 0, 0, .8);
       left: 0;
       top: 0;
-      -ms-flex-pack: center;
-      justify-content: center;
-      -ms-flex-align: center;
-      align-items: center;
       display: -ms-flexbox;
-      display: flex;
       z-index: 2147483647
     }
 
@@ -918,13 +848,9 @@
     }
 
     .dark-calendar {
-      --main-bg-color: #161719;
-      --gray-color: #b1b1b1;
-      --white-color: #efefef;
       background-color: var(--main-bg-color) !important;
       border: 1px var(--gray-color) solid;
       color: var(--white-color);
-      -webkit-box-shadow: 5px 5px 15px 5px #161719;
       box-shadow: 5px 5px 15px 5px #161719;
       font-family: Helvetica Neue, HelveticaNeue, Helvetica, Arial, sans-serif
     }
@@ -962,54 +888,49 @@
     }
 
     .dark-calendar {
-      --main-bg-color: #161719;
-      --gray-color: #b1b1b1;
-      --white-color: #efefef;
       background-color: var(--main-bg-color) !important;
       border: 1px var(--gray-color) solid;
       color: var(--white-color);
-      -webkit-box-shadow: 5px 5px 15px 5px #161719;
       box-shadow: 5px 5px 15px 5px #161719;
-      font-family: "Helvetica Neue", "HelveticaNeue", "Helvetica", "Arial",
-      sans-serif;
+      font-family: "Helvetica Neue", "HelveticaNeue", "Helvetica", "Arial", sans-serif
     }
 
     .dark-calendar .react-datepicker__header {
-      background-color: var(--main-bg-color);
+      background-color: var(--main-bg-color)
     }
 
     .dark-calendar .react-datepicker__current-month {
-      color: var(--white-color);
+      color: var(--white-color)
     }
 
     .dark-calendar .react-datepicker__day-name {
-      color: var(--white-color);
+      color: var(--white-color)
     }
 
     .dark-calendar .react-datepicker__day {
-      color: var(--white-color);
+      color: var(--white-color)
     }
 
     .dark-calendar .react-datepicker__day:hover {
-      background-color: var(--gray-color);
+      background-color: var(--gray-color)
     }
 
     .dark-calendar .react-datepicker__day--disabled {
-      color: #969696;
+      color: #969696
     }
 
     .dark-calendar .react-datepicker__day--selected {
-      background-color: rgb(0, 122, 255);
+      background-color: #007aff
     }
 
     .dark-calendar .react-datepicker__today-button {
       background-color: var(--gray-color);
-      color: var(--white-color);
+      color: var(--white-color)
     }
 
     .dark-calendar .react-datepicker__triangle {
       border-bottom-color: var(--gray-color) !important;
-      left: 120px;
+      left: 120px
     }
   </style>
 </head>
