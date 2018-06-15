@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import Button from './Button'
 import PropTypes from 'prop-types'
+import { messages } from '../MessageProvider'
 
 const Wrapper = styled.div`
   overflow: hidden;
@@ -11,10 +12,7 @@ const Banner = styled.div`
   padding: 10px 8px;
   border-bottom: 1px solid #4c4c4c;
   transition: margin-top 0.3s ease-in-out;
-  margin-top: ${props => {
-    console.log(props.margin)
-    return props.margin
-  }};
+  margin-top: ${props => props.margin};
 `
 
 const Message = styled.div`
@@ -76,6 +74,7 @@ class A2HSBanner extends Component {
       this.deferredPrompt.userChoice.then(choiceResult => {
         if (choiceResult.outcome === 'accepted') {
           console.log('User accepted the A2HS prompt')
+          this.props.message.sendMessage('appinstalled')
         }
         this.deferredPrompt = null
       })
@@ -106,7 +105,7 @@ class A2HSBanner extends Component {
   }
 
   renderBanner = ({ margin }) => {
-    const { message, yes, no } = this.props
+    const { prompt, yes, no } = this.props
     return (
       <Wrapper>
         <Banner
@@ -115,7 +114,7 @@ class A2HSBanner extends Component {
             this.banner = ref
           }}
         >
-          <Message>{message}</Message>
+          <Message>{prompt}</Message>
           <ButtonsWraper>
             <Button label={no} onClick={this.handleCancel} />
             <Button label={yes} onClick={this.handleConfirm} />
@@ -127,10 +126,6 @@ class A2HSBanner extends Component {
 
   render() {
     const { bannerHeight, visible, showing } = this.state
-    console.log(
-      `bannerHeight: ${bannerHeight}, visible: ${visible}, showing: ${showing}`
-    )
-
     if (visible && showing) return this.renderBanner({ margin: 0 })
     if (visible && !showing)
       return this.renderBanner({
@@ -141,9 +136,9 @@ class A2HSBanner extends Component {
 }
 
 A2HSBanner.propTypes = {
-  message: PropTypes.string.isRequired,
+  prompt: PropTypes.string.isRequired,
   yes: PropTypes.string,
   no: PropTypes.string
 }
 
-export default A2HSBanner
+export default messages(A2HSBanner)

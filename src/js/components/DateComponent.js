@@ -1,12 +1,12 @@
 import React from 'react'
 import DatePicker from 'react-datepicker'
-import 'react-datepicker/dist/react-datepicker.css'
+// import 'react-datepicker/dist/react-datepicker.css'
 import moment from 'moment'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import 'moment/locale/uk'
 import 'moment/locale/pl'
-import '../../css/dark_calendar.css'
+// import '../../css/dark_calendar.css'
 import { localized } from '../LocaleProvider'
 
 const DateStyled = styled.div`

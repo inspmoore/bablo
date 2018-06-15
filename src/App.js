@@ -12,6 +12,7 @@ import LanguageSelector from './js/components/LanguageSelector'
 import { isIphone } from './js/tools/isiPhone'
 import Snackbar from './js/components/Snackbar'
 import A2HSBanner from './js/components/A2HSBanner'
+import { messages } from './js/MessageProvider'
 
 const AppStyled = styled.div`
   overflow: hidden;
@@ -62,9 +63,9 @@ class App extends Component {
       updateUsd,
       updateUah,
       uah,
-      loading,
-      message
+      loading
     } = this.props.context
+    const { message } = this.props.message
 
     const { locale } = this.props
     return (
@@ -82,7 +83,7 @@ class App extends Component {
           loading={loading}
         />
         <A2HSBanner
-          message={locale.installpropmt}
+          prompt={locale.installpropmt}
           yes={locale.yesplease}
           no={locale.nothankyou}
         />
@@ -112,4 +113,4 @@ class App extends Component {
   }
 }
 
-export default localized(withCurrency(App))
+export default messages(localized(withCurrency(App)))

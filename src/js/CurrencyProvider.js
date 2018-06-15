@@ -3,6 +3,7 @@ import { get3Rates } from './nbu/nbuApi'
 import moment from 'moment'
 import Storage from './tools/storage'
 import { createDate } from './tools/time'
+import { messages } from './MessageProvider'
 
 const CurrencyContext = React.createContext()
 export const CurrencyConsumer = CurrencyContext.Consumer
@@ -33,8 +34,7 @@ class CurrencyProvider extends Component {
       usd: o.usd || 800,
       uah: o.uah || null,
       date: moment(),
-      loading: false,
-      message: null
+      loading: false
     }
   }
 
@@ -63,7 +63,8 @@ class CurrencyProvider extends Component {
         )
       })
       .catch(() => {
-        this.setState({ loading: false, message: 'failedtofetch' })
+        this.setState({ loading: false })
+        this.props.message.sendMessage('failedtofetch')
       })
   }
 
@@ -101,4 +102,4 @@ class CurrencyProvider extends Component {
   }
 }
 
-export default CurrencyProvider
+export default messages(CurrencyProvider)

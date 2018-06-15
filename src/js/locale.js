@@ -8,7 +8,8 @@ const locale = {
     installpropmt:
       'Ta aplikacja może Ci się przydać. Czy chcesz dodać ją do ekranu głównego?',
     yesplease: 'TAK, PROSZĘ!',
-    nothankyou: 'NIE, DZIĘKUJĘ'
+    nothankyou: 'NIE, DZIĘKUJĘ',
+    appinstalled: 'Aplikacja zainstalowana!'
   },
   en: {
     average: 'Quarter Average',
@@ -19,7 +20,8 @@ const locale = {
     installpropmt:
       'This app could come in handy. Would you like to add it to your home screen?',
     yesplease: 'YES, PLEASE!',
-    nothankyou: 'NO, THANK YOU'
+    nothankyou: 'NO, THANK YOU',
+    appinstalled: 'This app is now installed!'
   },
   uk: {
     average: 'Середня Квартальна',
@@ -30,7 +32,8 @@ const locale = {
     installpropmt:
       'Цей додаток може стати у нагоді. Хочеш додати його до головного екрану?',
     yesplease: 'ТАК, БУДЬ ЛАСКА!',
-    nothankyou: 'НІ, ДЯКУЮ'
+    nothankyou: 'НІ, ДЯКУЮ',
+    appinstalled: 'Додаток встановлений!'
   }
 }
 
