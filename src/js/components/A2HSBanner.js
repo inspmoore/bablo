@@ -11,7 +11,10 @@ const Banner = styled.div`
   padding: 10px 8px;
   border-bottom: 1px solid #4c4c4c;
   transition: margin-top 0.3s ease-in-out;
-  margin-top: ${props => props.margin};
+  margin-top: ${props => {
+    console.log(props.margin)
+    return props.margin
+  }};
 `
 
 const Message = styled.div`
