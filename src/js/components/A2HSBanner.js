@@ -90,7 +90,7 @@ class A2HSBanner extends Component {
   }
 
   openBanner = () => {
-    this.setState({ visible: true, showing: true })
+    this.setState({ visible: true }, this.setState({ showing: true }))
   }
 
   getBannerHeight = () => {
