@@ -94,7 +94,10 @@ class A2HSBanner extends Component {
 
   openBanner = () => {
     this.setState({ visible: true }, () => {
-      this.setState({ showing: true })
+      // a strange workaround. It seems that the browser was not updating the DOM quick enough
+      setTimeout(() => {
+        this.setState({ showing: true })
+      }, 1)
     })
   }
 
