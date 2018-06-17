@@ -6,7 +6,14 @@ import PropTypes from 'prop-types'
 import datalabels from 'chartjs-plugin-datalabels'
 import { localized } from '../LocaleProvider'
 
+/* @desc Shows the charts of rates and the average
+    Props:
+    rates [array] - rates to be shown
+    average [number] - average to be shown in yellow
+*/
+
 class RatesChart extends Component {
+  // options for the chart.js
   graphOpts = {
     legend: false,
     layout: {
@@ -45,6 +52,7 @@ class RatesChart extends Component {
   }
 
   componentDidMount() {
+    // a plugin for the chart.js - labels for the value points
     Chart.plugins.register({
       beforeDraw: function(chartInstance) {
         var ctx = chartInstance.chart.ctx
@@ -60,10 +68,10 @@ class RatesChart extends Component {
   }
 
   render() {
-    const { rates, average, locale } = this.props
+    const { rates, average } = this.props
     return (
       <Line
-        data={generateDataForChart({ rates, average, lang: locale.lang })}
+        data={generateDataForChart({ rates, average })}
         options={this.graphOpts}
         height={250}
       />
@@ -77,8 +85,8 @@ RatesChart.propTypes = {
       rate: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
       date: PropTypes.string
     })
-  ),
-  average: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+  ).isRequired,
+  average: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired
 }
 
 export default localized(RatesChart)

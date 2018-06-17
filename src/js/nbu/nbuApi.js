@@ -1,4 +1,8 @@
 import moment from 'moment'
+import { createDate } from '../tools/time'
+/* @desc fetches a rate of dollar in hrynias from the National Bank of Ukraine public API
+    @param date - date of the rate to be fetched
+ */
 function getRate(date) {
   return new Promise((resolve, reject) => {
     fetch(
@@ -22,6 +26,11 @@ function getRate(date) {
   })
 }
 
-export function get3Rates(dates) {
-  return Promise.all([getRate(dates[0]), getRate(dates[1]), getRate(dates[2])])
+export function get3Rates(date) {
+  const dates = [
+    getRate(createDate(date, 2)),
+    getRate(createDate(date, 1)),
+    getRate(createDate(date))
+  ]
+  return Promise.all(dates)
 }

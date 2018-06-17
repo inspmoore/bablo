@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const CurrencyInput = ({ usd, updateUsd }) => {
   const onChange = e => updateUsd(e.target.value)
@@ -13,6 +14,11 @@ const CurrencyInput = ({ usd, updateUsd }) => {
       onChange={onChange}
     />
   )
+}
+
+CurrencyInput.propTypes = {
+  usd: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  updateUsd: PropTypes.func
 }
 
 export default CurrencyInput

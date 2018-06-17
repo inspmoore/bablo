@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 const NumbersRowStyled = styled.div`
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -20,6 +21,10 @@ const NumbersRowStyled = styled.div`
 
 const NumbersRow = ({ children, focused }) => {
   return <NumbersRowStyled focused={focused}>{children}</NumbersRowStyled>
+}
+
+NumbersRow.propTypes = {
+  focused: PropTypes.bool
 }
 
 export default NumbersRow

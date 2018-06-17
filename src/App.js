@@ -50,7 +50,8 @@ const Footer = Header.extend`
 
 class App extends Component {
   componentDidMount() {
-    this.props.context.getRates()
+    // get currency rates at startup
+    this.props.currency.getRates()
   }
 
   render() {
@@ -64,7 +65,7 @@ class App extends Component {
       updateUah,
       uah,
       loading
-    } = this.props.context
+    } = this.props.currency
     const { message } = this.props.message
 
     const { locale } = this.props
@@ -79,7 +80,12 @@ class App extends Component {
               loading={loading}
             />
           }
-          right={<LanguageSelector />}
+          right={
+            <LanguageSelector
+              currentLang={locale.lang}
+              changeLang={locale.changeLang}
+            />
+          }
           loading={loading}
         />
         <A2HSBanner
@@ -87,7 +93,7 @@ class App extends Component {
           yes={locale.yesplease}
           no={locale.nothankyou}
         />
-        <Average average={average} />
+        <Average average={average} label={locale.average} />
         <RatesChart rates={rates} average={average} />
         <Header>{locale.calculator}</Header>
         <InputRow value={usd} onChange={updateUsd} label="$" />
@@ -107,7 +113,7 @@ class App extends Component {
             @pirx__
           </a>
         </Footer>
-        <Snackbar message={message} />
+        <Snackbar message={message} locale={locale} />
       </AppStyled>
     )
   }

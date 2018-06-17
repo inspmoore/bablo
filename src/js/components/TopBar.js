@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import ProgressBar from './ProgressBar'
 import { isIphone } from '../tools/isiPhone'
+import PropTypes from 'prop-types'
 
 const Wrapper = styled.div`
   position: fixed;
@@ -28,7 +29,11 @@ const Container = styled.div`
   flex: 1;
   text-align: ${({ align = 'center' }) => align};
 `
-
+/* @desc Just a top bar with container for stuff
+    Props:
+    left, center, right [element] - elements to be shown in the top bar
+    loading [bool] - a prop showing if the rates are loading.
+ */
 const TopBar = ({ left, center, right, loading }) => {
   return (
     <Wrapper>
@@ -37,9 +42,17 @@ const TopBar = ({ left, center, right, loading }) => {
         <Container>{center}</Container>
         <Container align="right">{right}</Container>
       </Bar>
+      {/* show the progres bar if the rates are being fetched from the server */}
       <ProgressBar show={loading} />
     </Wrapper>
   )
+}
+
+TopBar.propTypes = {
+  left: PropTypes.element,
+  center: PropTypes.element,
+  right: PropTypes.element,
+  loading: PropTypes.bool
 }
 
 export default TopBar

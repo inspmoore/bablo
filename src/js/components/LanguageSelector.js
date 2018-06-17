@@ -1,11 +1,14 @@
 import React from 'react'
-import { localized } from '../LocaleProvider'
 import Button from './Button'
+import PropTypes from 'prop-types'
 
-const LanguageSelector = ({ locale }) => {
-  return (
-    <Button label={locale.lang.toUpperCase()} onClick={locale.changeLang} />
-  )
+const LanguageSelector = ({ changeLang, currentLang }) => {
+  return <Button label={currentLang.toUpperCase()} onClick={changeLang} />
 }
 
-export default localized(LanguageSelector)
+LanguageSelector.propTypes = {
+  changeLang: PropTypes.func,
+  currentLang: PropTypes.string.isRequired
+}
+
+export default LanguageSelector

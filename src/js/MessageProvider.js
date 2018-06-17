@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 const MessageContext = React.createContext()
 
+// a decorator to expose the message object to the Component
 export function messages(Component) {
   return function MessageComponent(props) {
     return (
@@ -12,6 +13,8 @@ export function messages(Component) {
   }
 }
 
+/* Provider that delivers messages to the Snackbar
+ */
 class MessageProvider extends Component {
   constructor(props) {
     super(props)

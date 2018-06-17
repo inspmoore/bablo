@@ -28,7 +28,14 @@ const Input = styled.input`
   }
 `
 
-const InputRow = class extends React.Component {
+/* @desc Nice row to input numbers with the label on the left.
+    Props:
+    value [number] - value to be shown and modified
+    label [string] - label on the left
+    step [number] - step inc/dec of the value
+ */
+
+class InputRow extends React.Component {
   state = {
     focused: false
   }

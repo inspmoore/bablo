@@ -1,3 +1,5 @@
+// a singleton exposing simple API to localStorage
+
 class Storage {
   set(key, value) {
     window.localStorage.setItem(key, value)

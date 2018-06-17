@@ -94,7 +94,7 @@ class DateComponent extends React.Component {
           dateFormat="YYYY.MM.DD"
           todayButton={locale.today}
           customInput={<CustomInput />}
-          popperPlacement="auto"
+          popperPlacement="bottom"
           calendarClassName="dark-calendar"
         />
       </DateStyled>

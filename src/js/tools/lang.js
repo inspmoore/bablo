@@ -1,3 +1,4 @@
+// browser user language detection
 export function getLang() {
   const detectedLang =
     (navigator.languages && navigator.languages[0]) ||

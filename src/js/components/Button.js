@@ -25,6 +25,7 @@ const ButtonStyled = styled.button`
 
 const Button = ({ label, onClick }) => {
   return (
+    // onTouchStart={() => {}} - mobile safari workaround for the :active state
     <ButtonStyled onTouchStart={() => {}} onClick={onClick}>
       {label}
     </ButtonStyled>

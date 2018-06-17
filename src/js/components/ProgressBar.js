@@ -1,5 +1,6 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
+import PropTypes from 'prop-types'
 
 const anim2 = keyframes`
   0% {
@@ -71,6 +72,10 @@ const ProgressBar = ({ show }) => {
       <DivTwo />
     </ProgressBarStyled>
   )
+}
+
+ProgressBar.propTypes = {
+  show: PropTypes.bool
 }
 
 export default ProgressBar

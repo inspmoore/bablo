@@ -1,6 +1,6 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
-import { localized } from '../LocaleProvider'
+import PropTypes from 'prop-types'
 
 const blink = keyframes`
   0% {
@@ -32,10 +32,14 @@ const Label = styled.span`
   font-size: 0.6em !important;
 `
 
-const Span = styled.span`
+const Value = styled.span`
   animation: ${({ animate }) => (animate ? blink : '')} 0.3s ease-in-out;
 `
-
+/* 
+  @desc Component showing an average of the quarterly rates
+  Props:
+  average [number] - average to be displayed
+*/
 const Average = class extends React.Component {
   constructor(props) {
     super(props)
@@ -45,21 +49,27 @@ const Average = class extends React.Component {
     }
   }
   static getDerivedStateFromProps(nextProps, prevState) {
+    // if a new value is fed to the comp., the Value elem. fires up the blink animation
     if (nextProps.average !== prevState.prevAverage)
       return { prevAverage: nextProps.average, refresh: true }
     return { prevAverage: nextProps.average, refresh: false }
   }
 
   render() {
-    const { average, locale } = this.props
+    const { average, label } = this.props
     const { refresh } = this.state
     return (
       <AverageStyled>
-        <Span animate={refresh}>{average}₴</Span>
-        <Label>{locale.average}</Label>
+        <Value animate={refresh}>{average}₴</Value>
+        <Label>{label}</Label>
       </AverageStyled>
     )
   }
 }
 
-export default localized(Average)
+Average.propTypes = {
+  average: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+  label: PropTypes.string
+}
+
+export default Average

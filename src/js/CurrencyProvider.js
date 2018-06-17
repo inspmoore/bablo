@@ -2,30 +2,32 @@ import React, { Component } from 'react'
 import { get3Rates } from './nbu/nbuApi'
 import moment from 'moment'
 import Storage from './tools/storage'
-import { createDate } from './tools/time'
 import { messages } from './MessageProvider'
 
 const CurrencyContext = React.createContext()
-export const CurrencyConsumer = CurrencyContext.Consumer
-
+// A class decorator to expose the currency object to the Component
 export function withCurrency(Component) {
   return function CurrencyComponent(props) {
     return (
-      <CurrencyConsumer>
-        {context => <Component {...props} context={context} />}
-      </CurrencyConsumer>
+      <CurrencyContext.Consumer>
+        {context => <Component {...props} currency={context} />}
+      </CurrencyContext.Consumer>
     )
   }
 }
-
+/* Provider that delivers data for currency rates, average,
+    methods to update the currency values.
+ */
 class CurrencyProvider extends Component {
   constructor() {
     super()
+    // loading the data from the localstorage
     const o = Storage.loadKeys(['average', 'usd', 'uah', 'rates'])
+    // empty data for the first lunch. essential for the chart to work normally
     const empyRates = [
-      { rate: 0, date: createDate('20180526', 2), formatedDate: '' },
-      { rate: 0, date: createDate('20180526', 1), formatedDate: '' },
-      { rate: 0, date: createDate('20180526'), formatedDate: '' }
+      { rate: 0, date: '20180326', formatedDate: '' },
+      { rate: 0, date: '20180426', formatedDate: '' },
+      { rate: 0, date: '20180526', formatedDate: '' }
     ]
 
     this.state = {
@@ -41,10 +43,11 @@ class CurrencyProvider extends Component {
   storeState = () => Storage.storeObject(this.state)
 
   getRates = (date = this.state.date) => {
-    this.setState({ loading: true, message: null })
-    const dates = [createDate(date, 2), createDate(date, 1), createDate(date)]
-    get3Rates(dates)
+    this.setState({ loading: true })
+
+    get3Rates(date)
       .then(vals => {
+        // arithmetical average of 3 currency rates
         const average = Number(
           vals.reduce((prev, val) => {
             return (prev.rate || prev) + val.rate

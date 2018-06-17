@@ -4,22 +4,26 @@ import { getLang } from './tools/lang'
 import Storage from './tools/storage'
 
 const LocaleContext = React.createContext()
-export const LocaleConsumer = LocaleContext.Consumer
-
+// a decorator to expose the locale object to the Component
 export function localized(Component) {
   return function Localized(props) {
     return (
-      <LocaleConsumer>
+      <LocaleContext.Consumer>
         {locale => <Component {...props} locale={locale} />}
-      </LocaleConsumer>
+      </LocaleContext.Consumer>
     )
   }
 }
 
+/* A Provider to expose the localization to the components
+ */
+
 class LocaleProvider extends Component {
   constructor() {
     super()
+    // get stored lang preference
     let lang = Storage.get('lang')
+    // if stored lang absent, detect the browser lang
     if (!lang) {
       lang = getLang()
       Storage.set('lang', lang)
