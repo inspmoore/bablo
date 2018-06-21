@@ -1,7 +1,8 @@
-<img src="/assets/pwa_badge.svg" align="right" />
-
 # Bablo - bo hajs musi się zgadzać
 
+[![Lighthouse score Performance: 87/100](https://lighthouse-badge.appspot.com/?score=87&compact&category=Perf)](https://github.com/ebidel/lighthouse-badge)
+[![Lighthouse score PWA: 91/100](https://lighthouse-badge.appspot.com/?score=91&compact&category=PWA)](https://github.com/ebidel/lighthouse-badge)
+[![Lighthouse score Best Practices: 94/100](https://lighthouse-badge.appspot.com/?score=94&compact&category=Practices)](https://github.com/ebidel/lighthouse-badge)
 [![style: styled-components](https://img.shields.io/badge/style-%F0%9F%92%85%20styled--components-orange.svg?colorB=daa357&colorA=db748e)](https://github.com/styled-components/styled-components)
 
 ![Bablo - bo hajs musi się zgadzać](/assets/bablo_wide.svg)
