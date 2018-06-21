@@ -30,7 +30,7 @@ Besides there's a great [ChartJS](https://chartjs.org) library used for the grap
 ## PWA 🚀
 
 Thanks to the Service Worker the app works offline, it prompts the user for the installation and caches last results in local storage. It works on iOS 11.3 too, with expception of the install prompt of course.
-![install banner](/assets/bablo_pwa.jpg)
+![installation banner](/assets/bablo_pwa.jpg) <!-- .element width="400px" -->
 
 ## Installing 🔩
 
