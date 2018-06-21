@@ -1,4 +1,4 @@
-<!-- <img src="/assets/pwa_badge.svg" align="right" /> -->
+<img src="/assets/pwa_badge.svg" align="right" />
 
 # Bablo - bo hajs musi się zgadzać
 
@@ -12,7 +12,7 @@ A PWA (Progessive Web App) for your delight. This app will make a tedious proces
 
 ## How to use 🔨
 
-<div style='position:relative;padding-bottom:54%'><iframe src='https://gfycat.com/ifr/BelatedKindBrahmanbull' frameborder='0' scrolling='no' width='100%' height='100%' style='position:absolute;top:0;left:0' allowfullscreen></iframe></div>
+![bablo in use](https://thumbs.gfycat.com/RashCarefulInvisiblerail-size_restricted.gif)
 
 ## Why? 🧐
 
@@ -29,7 +29,7 @@ Besides there's a great [ChartJS](https://chartjs.org) library used for the grap
 ## PWA 🚀
 
 Thanks to the Service Worker the app works offline, it prompts the user for the installation and caches last results in local storage. It works on iOS 11.3 too, with expception of the install prompt of course.
-[animowany gif pokazujący instalację]
+![install banner](/assets/bablo_pwa.jpg)
 
 ## Installing 🔩
 
