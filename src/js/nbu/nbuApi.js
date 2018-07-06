@@ -6,7 +6,8 @@ import { createDate } from '../tools/time'
 function getRate(date) {
   return new Promise((resolve, reject) => {
     fetch(
-      `https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?valcode=USD&date=${date}&json`
+      `https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?valcode=USD&date=${date}&json`,
+      {mode: 'no-cors'}
     ).then(
       res => {
         res.json().then(json => {
