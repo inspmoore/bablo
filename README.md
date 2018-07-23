@@ -5,7 +5,7 @@
 [![Lighthouse score Best Practices: 94/100](https://lighthouse-badge.appspot.com/?score=94&compact&category=Practices)](https://github.com/ebidel/lighthouse-badge)
 [![style: styled-components](https://img.shields.io/badge/style-%F0%9F%92%85%20styled--components-orange.svg?colorB=daa357&colorA=db748e)](https://github.com/styled-components/styled-components)
 
-![Bablo - bo hajs musi się zgadzać](/assets/bablo_wide.svg)
+![Bablo - bo hajs musi się zgadzać](client/assets/bablo_wide.svg)
 
 > Working demo here [bablo.herokuapp.com](https://bablo.herokuapp.com). Best to open on a mobile.
 
@@ -31,7 +31,7 @@ Besides there's a great [ChartJS](https://chartjs.org) library used for the grap
 
 Thanks to the Service Worker the app works offline, it prompts the user for the installation and caches last results in local storage. It works on iOS 11.3 too, with expception of the install prompt of course.
 
-![installation banner](/assets/bablo_pwa.jpg?v=4&s=400) <!-- .element width="400px" -->
+![installation banner](client/assets/bablo_pwa.jpg?v=4&s=400) <!-- .element width="400px" -->
 
 ## Installing 🔩
 

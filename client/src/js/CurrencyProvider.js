@@ -44,9 +44,12 @@ class CurrencyProvider extends Component {
 
   getRates = (date = this.state.date) => {
     this.setState({ loading: true })
+    console.log(moment(date).format('YYYYMMDD'))
 
-    get3Rates(date)
+    get3Rates(moment(date).format('YYYYMMDD'))
       .then(vals => {
+        console.log(vals)
+
         // arithmetical average of 3 currency rates
         const average = Number(
           vals.reduce((prev, val) => {
