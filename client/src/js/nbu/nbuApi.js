@@ -1,4 +1,10 @@
-const endpoint = `http://${document.domain}:5000/api/rates/`
+let endpoint = ''
+if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
+  endpoint = `http://${document.domain}:5000/api/rates/`
+} else {
+  endpoint = `http://${document.domain}/api/rates/`
+  // production code
+}
 
 export function get3Rates(date) {
   return fetch(endpoint + date)
