@@ -9,6 +9,7 @@
     "node-fetch": "^2.1.2"
   },
   "scripts": {
-    "start": "node server/index.js"
+    "start": "node server/index.js",
+    "heroku-postbuild": "cd client && yarn && yarn run build"
   }
 }
