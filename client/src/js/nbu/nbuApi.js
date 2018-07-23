@@ -2,7 +2,7 @@ let endpoint = ''
 if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
   endpoint = `http://${document.domain}:5000/api/rates/`
 } else {
-  endpoint = `http://${document.domain}/api/rates/`
+  endpoint = `https://${document.domain}/api/rates/`
   // production code
 }
 
