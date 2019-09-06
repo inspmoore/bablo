@@ -51,4 +51,4 @@ Rest of the scripts are the same as in [create-react-app](https://github.com/fac
 
 ## Contributing 🤝
 
-If you find this little project interesting and wanted to add something, or you've found some utter nonsense in the code that infuses internal pain in you, than don't hesitate and do a PR or report an issue. All are very much welcome.
+If you find this little project interesting and wanted to add something, or you've found some utter nonsense in the code that infuses internal pain in you, than don't hesitate and do a PR or report an issue. All are very much welcome!
